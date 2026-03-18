@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-choco-dark: #2d1b15;
+  --color-choco-milk: #5d4037;
+  --color-choco-light: #8d6e63;
+  --color-caramel: #d4af37;
+  --color-cream: #fdf5e6;
+  --color-easter-pink: #ffd1dc;
+  --color-easter-blue: #b5e2ff;
+  --color-easter-green: #c1f0c1;
+
+  --font-display: "Playfair Display", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background-color: #1a100c;
+  color: #fdf5e6;
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+/* Custom scrollbar for carousel */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite 3s;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(212,175,55,0.4); transform: scale(1) rotate(3deg); }
+  50% { box-shadow: 0 0 20px rgba(212,175,55,0.8); transform: scale(1.05) rotate(5deg); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
