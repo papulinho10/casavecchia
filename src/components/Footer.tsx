@@ -1,4 +1,5 @@
 import { Instagram, MessageCircle, MapPin, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -21,8 +22,8 @@ export function Footer() {
               Navegação
             </h4>
             <ul className="space-y-2 text-sm text-[#8d6e63]">
-              <li><a href="/" className="hover:text-[#fdf5e6] transition-colors">Início</a></li>
-              <li><a href="/catalogo" className="hover:text-[#fdf5e6] transition-colors">Catálogo de Produtos</a></li>
+              <li><Link to="/" className="hover:text-[#fdf5e6] transition-colors">Início</Link></li>
+              <li><Link to="/catalogo" className="hover:text-[#fdf5e6] transition-colors">Catálogo de Produtos</Link></li>
               <li><a href="/#historia" className="hover:text-[#fdf5e6] transition-colors">Nossa História</a></li>
               <li><a href="/#contato" className="hover:text-[#fdf5e6] transition-colors">Contato</a></li>
             </ul>

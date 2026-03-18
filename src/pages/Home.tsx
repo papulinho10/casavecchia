@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { EasterCarousel } from "../components/EasterCarousel";
-import { ArrowRight, Leaf, Heart, Award, Instagram, MessageCircle, MapPin } from "lucide-react";
+import { ArrowRight, Leaf, Heart, Award, Instagram, MessageCircle, MapPin, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function Home() {
@@ -228,6 +228,115 @@ export function Home() {
           >
             Ver Catálogo
           </Link>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section className="py-24 bg-[#1a100c] relative border-t border-[#2d1b15]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#fdf5e6] mb-4">
+              O que dizem <span className="text-[#d4af37] italic">nossos clientes</span>
+            </h2>
+            <p className="text-[#d7ccc8] text-lg">A satisfação de quem prova nossos chocolates.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            {/* Review 1 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-[#2d1b15] p-8 rounded-3xl border border-[#d4af37]/20 shadow-lg flex flex-col h-full"
+            >
+              <div className="flex space-x-1 mb-4 text-[#d4af37]">
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+              </div>
+              <p className="text-[#d7ccc8] italic mb-6 flex-grow">
+                "Chocolates maravilhosos. Fui através da indicação de uma amiga e foi ótimo! Em Gramado e Canela tem um monte de lojas grandes, de nome e indiscutivelmente os chocolates da Casa Vecchia são melhores. Gosto de chocolate de verdade. O atendimento foi ótimo! No Google ainda aparece um endereço de Gramado, porém, eles são estão com loja em Canela. Estávamos hospedados em Gramado e mesmo assim fomos lá em Canela só para comprar o chocolate deles. Ah, os valores são super justos. :)"
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-[#d4af37] rounded-full flex items-center justify-center text-[#1a100c] font-bold text-lg mr-4">
+                  C
+                </div>
+                <div>
+                  <h4 className="text-[#fdf5e6] font-bold">Cintia Souza</h4>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Review 2 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-[#2d1b15] p-8 rounded-3xl border border-[#d4af37]/20 shadow-lg flex flex-col h-full"
+            >
+              <div className="flex space-x-1 mb-4 text-[#d4af37]">
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+              </div>
+              <p className="text-[#d7ccc8] italic mb-6 flex-grow">
+                "São super atenciosos, bons preços, uma loja simples, mas aconchegante, uma aula a parte sobre chocolates e possuem um excelente chocolate."
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-[#d4af37] rounded-full flex items-center justify-center text-[#1a100c] font-bold text-lg mr-4">
+                  M
+                </div>
+                <div>
+                  <h4 className="text-[#fdf5e6] font-bold">Marcelo Nanya</h4>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Review 3 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-[#2d1b15] p-8 rounded-3xl border border-[#d4af37]/20 shadow-lg flex flex-col h-full"
+            >
+              <div className="flex space-x-1 mb-4 text-[#d4af37]">
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+                <Star size={20} fill="currentColor" />
+              </div>
+              <p className="text-[#d7ccc8] italic mb-6 flex-grow">
+                "Chocolate artesanal maravilhoso"
+              </p>
+              <div className="flex items-center">
+                <div className="w-10 h-10 bg-[#d4af37] rounded-full flex items-center justify-center text-[#1a100c] font-bold text-lg mr-4">
+                  J
+                </div>
+                <div>
+                  <h4 className="text-[#fdf5e6] font-bold">Jaqueline Bertolucci</h4>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="text-center">
+            <a 
+              href="https://www.google.com/search?sca_esv=069bfcf63421705d&rlz=1C1ONGR_enBR1153BR1153&sxsrf=ANbL-n6xek7ZojqvVHYgOF6i85N5Dp654A:1773866872273&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVu44yUoMB2A6ijfYPKNUvpHzllZ8zPqyNeEMgi5dEZ2lU3IZtQadI4PzXi9K-58kJXOKvv0eAkKvOOxmW5Bm_GuyFDekwurC5qeO6VybQgaYlIOGeJpnWU6Q3SDtCHv3wWd35U%3D&q=Casa+Vecchia+Chocolates+F%C3%A1brica+e+Loja+Coment%C3%A1rios&sa=X&ved=2ahUKEwiC0bOGqaqTAxWYALkGHRWhLigQ0bkNegQIIhAH&biw=1536&bih=703&dpr=1.25"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold uppercase tracking-widest text-[#1a100c] bg-[#d4af37] rounded-full hover:bg-[#fdf5e6] transition-all duration-300 transform hover:-translate-y-1 shadow-[0_10px_40px_rgba(212,175,55,0.4)]"
+            >
+              Avaliações do Google
+            </a>
+          </div>
         </div>
       </section>
     </div>

@@ -35,16 +35,29 @@ export function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.path}
-                className={cn(
-                  "hover:text-[#d4af37] transition-colors font-medium text-sm uppercase tracking-widest",
-                  location.pathname === link.path && "text-[#d4af37]"
-                )}
-              >
-                {link.name}
-              </a>
+              link.path.startsWith("/") && !link.path.includes("#") ? (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={cn(
+                    "hover:text-[#d4af37] transition-colors font-medium text-sm uppercase tracking-widest",
+                    location.pathname === link.path && "text-[#d4af37]"
+                  )}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.path}
+                  className={cn(
+                    "hover:text-[#d4af37] transition-colors font-medium text-sm uppercase tracking-widest",
+                    location.pathname === link.path && "text-[#d4af37]"
+                  )}
+                >
+                  {link.name}
+                </a>
+              )
             ))}
             <a
               href="https://www.instagram.com/casavecchiachocolates/"
@@ -101,14 +114,25 @@ export function Navbar() {
           >
             <div className="px-4 pt-2 pb-6 space-y-2">
               {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-3 rounded-md text-base font-medium hover:bg-[#5d4037] hover:text-[#d4af37] transition-colors uppercase tracking-wider"
-                >
-                  {link.name}
-                </a>
+                link.path.startsWith("/") && !link.path.includes("#") ? (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-3 py-3 rounded-md text-base font-medium hover:bg-[#5d4037] hover:text-[#d4af37] transition-colors uppercase tracking-wider"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className="block px-3 py-3 rounded-md text-base font-medium hover:bg-[#5d4037] hover:text-[#d4af37] transition-colors uppercase tracking-wider"
+                  >
+                    {link.name}
+                  </a>
+                )
               ))}
             </div>
           </motion.div>

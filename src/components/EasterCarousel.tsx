@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { products } from "../data/products";
 import { ArrowRight, MoveHorizontal } from "lucide-react";
+import { Link } from "react-router-dom";
 import { ProductCard } from "./ProductCard";
 
 export function EasterCarousel() {
@@ -129,13 +130,13 @@ export function EasterCarousel() {
           </div>
           
           <div className="mt-8 flex items-center justify-center space-x-4">
-            <a
-              href="/catalogo"
+            <Link
+              to="/catalogo"
               className="inline-flex items-center space-x-2 bg-[#d4af37] text-[#2d1b15] px-6 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-[#fdf5e6] transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               <span>Ver Catálogo</span>
               <ArrowRight size={20} />
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -169,13 +170,13 @@ export function EasterCarousel() {
               <span className="text-xs font-bold uppercase tracking-wider">Deslize para ver mais</span>
             </div>
             
-            <a
-              href="/catalogo"
+            <Link
+              to="/catalogo"
               className="inline-flex items-center space-x-2 bg-[#d4af37] text-[#1a100c] px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-[#fdf5e6] transition-all duration-300 transform hover:scale-105 shadow-[0_10px_30px_rgba(212,175,55,0.2)] whitespace-nowrap"
             >
               <span>Catálogo Completo</span>
               <ArrowRight size={20} />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
