@@ -12,7 +12,7 @@ export function EasterCarousel() {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [dragDistance, setDragDistance] = useState(0);
   
-  const easterProducts = products.filter((p) => p.isEaster);
+  const easterProducts = products.filter((p) => ["1", "2", "3"].includes(p.id));
 
   // Auto-scroll logic (3 seconds)
   useEffect(() => {
@@ -92,14 +92,14 @@ export function EasterCarousel() {
       }}
     >
       {/* Overlay to ensure text readability over the background image */}
-      <div className="absolute inset-0 bg-[#1a100c]/60 backdrop-blur-md z-0"></div>
+      <div className="absolute inset-0 bg-[#1a100c]/60 backdrop-blur-[15px] z-0"></div>
       
       {/* Top and Bottom Gradients to blend with adjacent sections */}
-      <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-[#1a100c] to-transparent z-0 pointer-events-none"></div>
+      <div className="absolute top-0 left-0 right-0 h-96 bg-gradient-to-b from-[#1a100c] via-[#1a100c]/80 to-transparent z-0 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#1a100c] to-transparent z-0 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div className="flex flex-col items-center text-center mb-16">
           <div className="max-w-2xl relative">
             {/* Cute Easter Bunny SVG peeking */}
             <motion.div 
@@ -128,7 +128,7 @@ export function EasterCarousel() {
             </p>
           </div>
           
-          <div className="mt-8 md:mt-0 flex items-center space-x-4">
+          <div className="mt-8 flex items-center justify-center space-x-4">
             <a
               href="/catalogo"
               className="inline-flex items-center space-x-2 bg-[#d4af37] text-[#2d1b15] px-6 py-3 rounded-full font-bold uppercase tracking-widest hover:bg-[#fdf5e6] transition-all duration-300 transform hover:scale-105 shadow-lg"
@@ -141,13 +141,6 @@ export function EasterCarousel() {
 
         {/* Carousel Container */}
         <div className="relative">
-          {/* Left Bunny Paws holding the carousel */}
-          <div className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 hidden lg:block pointer-events-none">
-             <svg width="60" height="120" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-20 20 C20 20 50 40 50 60 C50 80 20 100 -20 100" fill="#ffffff" stroke="#5d4037" strokeWidth="4" strokeLinecap="round"/>
-             </svg>
-          </div>
-
           <div 
             ref={containerRef}
             onMouseEnter={() => setIsHovered(true)}
@@ -160,7 +153,7 @@ export function EasterCarousel() {
             onTouchEnd={() => {
               setTimeout(() => setIsHovered(false), 2000);
             }}
-            className={`flex overflow-x-auto gap-4 md:gap-6 pb-16 pt-4 px-4 md:px-8 -mx-4 md:-mx-8 hide-scrollbar snap-x snap-mandatory ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+            className={`flex overflow-x-auto lg:justify-center gap-4 md:gap-6 pb-16 pt-4 px-4 md:px-8 -mx-4 md:-mx-8 hide-scrollbar snap-x snap-mandatory ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`}
             style={{ scrollBehavior: 'smooth' }}
           >
             {easterProducts.map((product, index) => (
@@ -169,16 +162,9 @@ export function EasterCarousel() {
               </div>
             ))}
           </div>
-
-          {/* Right Bunny Paws */}
-          <div className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 hidden lg:block pointer-events-none transform scale-x-[-1]">
-             <svg width="60" height="120" viewBox="0 0 60 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-20 20 C20 20 50 40 50 60 C50 80 20 100 -20 100" fill="#ffffff" stroke="#5d4037" strokeWidth="4" strokeLinecap="round"/>
-             </svg>
-          </div>
           
           <div className="flex flex-col items-center justify-center -mt-8 space-y-8 relative z-30">
-            <div className="flex items-center space-x-2 text-[#fdf5e6] bg-[#2d1b15]/80 px-4 py-2 rounded-full shadow-sm backdrop-blur-sm">
+            <div className="flex items-center space-x-2 text-[#fdf5e6] bg-[#2d1b15]/80 px-4 py-2 rounded-full shadow-sm backdrop-blur-sm lg:hidden">
               <MoveHorizontal size={16} className="animate-pulse" />
               <span className="text-xs font-bold uppercase tracking-wider">Deslize para ver mais</span>
             </div>

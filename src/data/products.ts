@@ -42,7 +42,7 @@ export const products: Product[] = [
     description: "Ovo de chocolate ao leite com casca recheada de Nutella e avelãs crocantes.",
     price: 110.00,
     image: "https://picsum.photos/seed/easter4/600/600",
-    isEaster: true,
+    isEaster: false,
     discount: 15,
   },
   {

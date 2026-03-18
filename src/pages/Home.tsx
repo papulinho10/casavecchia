@@ -7,7 +7,7 @@ export function Home() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative h-[85vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[85vh] py-20 flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://i.postimg.cc/K85nzzZY/download-(5).jpg"
@@ -23,12 +23,12 @@ export function Home() {
             initial={{ opacity: 0, scale: 0.5, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1, type: "spring", bounce: 0.6 }}
-            className="mb-8 relative"
+            className="mb-6 relative"
           >
             <img 
               src="https://i.postimg.cc/6pLjwYkb/Design-Sem-Nome-1-Editado.png" 
               alt="Casa Vecchia Chocolates" 
-              className="w-72 md:w-[32rem] relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+              className="w-72 md:w-[26rem] lg:w-[28rem] relative z-10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
               referrerPolicy="no-referrer"
             />
           </motion.div>
@@ -36,7 +36,7 @@ export function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-[#fdf5e6]/90 mb-10 font-light max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-[#fdf5e6]/90 mb-8 font-light max-w-2xl mx-auto"
           >
             Descubra sabores únicos em nossa loja. Produzimos nosso próprio chocolate com ingredientes selecionados e muito amor.
           </motion.p>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Product } from "../data/products";
 import { motion } from "motion/react";
 import { ShoppingBag, Eye } from "lucide-react";
@@ -13,10 +13,16 @@ interface ProductCardProps {
 
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
   const { addToCart } = useCart();
+  const [isRevealed, setIsRevealed] = useState(false);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault(); // Prevent navigating to details page
+    e.stopPropagation();
     addToCart(product);
+  };
+
+  const handleCardClick = () => {
+    setIsRevealed(!isRevealed);
   };
 
   return (
@@ -27,8 +33,9 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       transition={{ duration: 0.6, delay: index * 0.1, type: "spring", bounce: 0.4 }}
       whileHover={{ y: -5 }}
       className="bg-transparent rounded-2xl overflow-hidden transition-all duration-500 group relative flex flex-col h-full"
+      onClick={handleCardClick}
     >
-      <Link to={`/produto/${product.id}`} className="flex flex-col h-full">
+      <div className="flex flex-col h-full cursor-pointer">
         {/* Glossy Overlay */}
         <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/40 to-white/0 opacity-0 group-hover:opacity-100 transform -translate-x-full group-hover:translate-x-full transition-all duration-1000 z-30 pointer-events-none"></div>
 
@@ -48,15 +55,19 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           />
           
           {/* Hover Action Overlay */}
-          <div className="absolute inset-0 bg-[#2d1b15]/20 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-30">
-            <div className="bg-white/90 text-[#2d1b15] px-4 py-2 rounded-full font-bold uppercase tracking-wider flex items-center space-x-2 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-              <Eye size={18} />
+          <div className={`absolute inset-0 bg-[#2d1b15]/40 backdrop-blur-[2px] transition-opacity duration-300 flex items-center justify-center z-30 ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}>
+            <Link 
+              to={`/produto/${product.id}`}
+              onClick={(e) => e.stopPropagation()}
+              className={`bg-white/90 text-[#2d1b15] px-6 py-3 rounded-full font-bold uppercase tracking-wider flex items-center space-x-2 shadow-lg transform transition-all duration-300 hover:bg-[#d4af37] hover:text-white hover:scale-105 ${isRevealed ? 'translate-y-0' : 'translate-y-4 group-hover:translate-y-0'}`}
+            >
+              <Eye size={20} />
               <span className="text-sm">Ver Detalhes</span>
-            </div>
+            </Link>
           </div>
         </div>
         
-        <div className="p-5 bg-transparent flex-grow flex flex-col justify-between relative z-10">
+        <div className="p-5 bg-[#2d1b15]/40 backdrop-blur-md flex-grow flex flex-col justify-between relative z-10 border-t border-white/10">
           <div>
             <h3 className="font-display text-xl font-bold text-[#fdf5e6] mb-1.5 line-clamp-2 group-hover:text-[#d4af37] transition-colors">
               {product.name}
@@ -87,7 +98,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             </button>
           </div>
         </div>
-      </Link>
+      </div>
     </motion.div>
   );
 }
