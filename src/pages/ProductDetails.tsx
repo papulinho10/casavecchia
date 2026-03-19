@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../data/products";
 import { motion } from "motion/react";
-import { ArrowLeft, ShoppingBag, Info } from "lucide-react";
+import { ArrowLeft, ShoppingBag } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 export function ProductDetails() {
@@ -82,13 +82,6 @@ export function ProductDetails() {
                 <div className="prose prose-stone mb-10">
                   <p className="text-[#d7ccc8] text-lg leading-relaxed">
                     {product.description}
-                  </p>
-                </div>
-
-                <div className="bg-[#1a100c] p-4 rounded-xl flex items-start space-x-3 mb-10 border border-[#5d4037]">
-                  <Info className="text-[#d4af37] flex-shrink-0 mt-0.5" size={20} />
-                  <p className="text-sm text-[#bcaaa4]">
-                    Produto artesanal. As cores e detalhes podem variar ligeiramente da foto.
                   </p>
                 </div>
 
